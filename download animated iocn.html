@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download animated icon</title>
+    <link rel="icon" href="2.jpeg">
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+        
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: black;
+        }
+        
+        .container {
+            height: 460px;
+            width: 400px;
+            /* border: 2px solid white; */
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .line {
+            width: 400px;
+            height: 300px;
+            background-color: blue;
+            clip-path: polygon(40% 0%, 37% 37%, 100% 37%, 100% 62%, 37% 62%, 40% 100%, 0% 50%);
+            position: absolute;
+            transform: rotate(-90deg);
+            top: 50px;
+            overflow: hidden;
+        }
+        
+        .line::before {
+            position: absolute;
+            content: "";
+            height: 295px;
+            width: 400px;
+            background-color: white;
+            top: 0;
+            right: 0;
+            animation: top_bottom 3s ease-out infinite;
+        }
+        
+        @keyframes top_bottom {
+            0% {
+                transform: translateX(0px);
+            }
+            100% {
+                transform: translateX(-400px);
+            }
+        }
+        
+        .bottom-line {
+            width: 400px;
+            height: 40px;
+            background-color: white;
+            position: absolute;
+            bottom: 0;
+            overflow: hidden;
+        }
+        
+        .bottom-line::before {
+            position: absolute;
+            content: "";
+            width: 160px;
+            height: 40px;
+            background-color: blue;
+            top: 0px;
+            left: -160px;
+            animation: left_right 3s ease-out infinite;
+        }
+        
+        @keyframes left_right {
+            0% {
+                transform: translateX(0px);
+            }
+            100% {
+                transform: translateX(550px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="line"></div>
+        <div class="bottom-line"></div>
+    </div>
+</body>
+
+</html>
